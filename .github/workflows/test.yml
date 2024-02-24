@@ -18,5 +18,5 @@ jobs:
       - name: Install Dependencies
         run: npm ci  # Install project dependencies
 
-      - name: Run Tests
-        run: npm test  # Run tests using npm test script
+      - name: Run Tests with API Key
+        run: API_KEY=${{ secrets.API_KEY }} npm test
