@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/weather-api.test.js"
+    "test": "node test/weather-api-test.js"
   },
   "author": "",
   "license": "ISC",
