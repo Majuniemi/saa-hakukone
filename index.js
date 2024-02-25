@@ -4,10 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
-// Serve static files (HTML, CSS, JavaScript)
 app.use(express.static('public'));
 
-// API endpoint for fetching weather data
 app.get('/weather/:city', async (req, res) => {
     try {
         const city = req.params.city;
@@ -16,6 +14,7 @@ app.get('/weather/:city', async (req, res) => {
 
         const response = await axios.get(apiUrl);
         const data = response.data;
+        console.log(data);
 
         if (data.cod === '404') {
             res.status(404).json({ error: 'City not found' });
@@ -28,7 +27,6 @@ app.get('/weather/:city', async (req, res) => {
     }
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
