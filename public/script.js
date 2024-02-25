@@ -7,7 +7,6 @@ async function getWeather() {
         const response = await axios.get(`/weather/${cityInput}`);
         const weatherData = response.data;
 
-        // Update UI with weather data
         weatherDataContainer.innerHTML = `
             <h2>Säätila kaupungissa: ${cityInput}</h2>
             <p>Lämpötila: ${weatherData.main.temp}°C</p>
@@ -17,7 +16,6 @@ async function getWeather() {
         `;
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        // Display error message in UI
         weatherDataContainer.innerHTML = `<p>Error fetching weather data. Please try again later.</p>`;
     }
 }
