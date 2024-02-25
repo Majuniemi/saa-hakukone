@@ -1,0 +1,22 @@
+name: Run Tests
+
+on: [push, pull_request]  # Define when the workflow should run
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Specify the operating system for the job
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Checkout the repository code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Specify the Node.js version
+
+      - name: Install Dependencies
+        run: npm ci  # Install project dependencies
+
+      - name: Run Tests with API Key
+        run: API_KEY=${{ secrets.API_KEY }} npm test
