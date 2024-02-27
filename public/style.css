@@ -1,22 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 1em;
-    padding: 0;
-    background-color: #f0f0f0;
+:root {
+    --header-footer-background-color: #12163b;
+    --header-footer-color: #ffae3c;
+    --header-footer-accent-color: #50C4ED;
+    --weather-background-color: #fff8f1;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--header-footer-background-color);
+    color: var(--header-footer-color);
+}
+
+.site-header h1 {
+    margin: 0.3em;
+    font-size: 1.5em;
+}
+
+.site-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-header li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.site-header li:last-child {
+    margin-right: 2em;
+}
+
+.site-header nav ul li a {
+    color: var(--header-footer-color);
+    text-decoration: none;
+}
+
+.site-header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 80%;
 }
 
 input[type="text"] {
-    width: 80%;
+    margin-top: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
+    border: 1px solid var(--weather-background-color);
     border-radius: 4px;
     margin-right: 10px;
+    background-color: var(--weather-background-color);
 }
 
 button {
@@ -24,16 +79,21 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--header-footer-color);
+    color: var(--weather-background-color);
     cursor: pointer;
 }
 
 #weatherData {
-    margin-top: 20px;
-    width: 80%;
-    padding: 10px;
-    background-color: #fff;
+    margin: 1em;
+    width: 100%;
+    padding: 1em;
+    color: var(--header-footer-background-color);
+    background-color: var(--weather-background-color);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#weatherData p {
+    margin: 1em 0 0 0;
 }

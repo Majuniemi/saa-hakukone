@@ -10,10 +10,21 @@
 </head>
 
 <body>
-    <h1>Päivän sää</h1>
-    <input type="text" id="cityInput" placeholder="Kaupunki">
-    <button id="button">Hae säätiedot</button>
-    <div id="weatherData"></div>
+    <header class="site-header">
+        <h1>Päivän sää</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="site1.html">Suosikit</a></li>
+                <li><a href="site2.html">Tietoja</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="data">
+        <input type="text" id="cityInput" placeholder="Kaupunki">
+        <button id="button">Hae säätiedot</button>
+        <div id="weatherData"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 

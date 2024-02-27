@@ -35,7 +35,7 @@ async function getWeather() {
         `;
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        weatherDataContainer.innerHTML = `<p>Error fetching weather data. Please try again later.</p>`;
+        weatherDataContainer.innerHTML = `<h3>Error fetching weather data. Please try again later.</h3>`;
     }
     input.value = '';
 }
