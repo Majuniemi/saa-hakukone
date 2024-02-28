@@ -1,5 +1,13 @@
 const button = document.getElementById('button');
 const input = document.getElementById('cityInput');
+let longitude = 65;
+let latitude = 27;
+
+var map = L.map('map').setView([longitude, latitude], 8)
+
+L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=GdSPu31pwUy9cLlOnBAA', {
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+}).addTo(map);
 
 button.addEventListener('click', handleClick);
 
@@ -22,6 +30,9 @@ async function getWeather() {
         const weatherData = response.data;
         const windSpeed = getWindSpeed(weatherData.wind.speed);
         const windDirection = getWindDirection(weatherData.wind.deg);
+        longitude = weatherData.coord.lat;
+        latitude = weatherData.coord.lon;
+        console.log(longitude, latitude);
 
         weatherDataContainer.innerHTML = `
             <h2>Säätila kaupungissa: ${cityInput}</h2>
@@ -29,10 +40,9 @@ async function getWeather() {
             <p>Tuntuu kuin: ${weatherData.main.feels_like}°C</p>
             <p>Säätila: ${weatherData.weather[0].description}</p>
             <p>Kosteus: ${weatherData.main.humidity}%</p>
-            <p>Tuuli: ${windSpeed} ${windDirection}</p>
-            <p>Sijainti: ${weatherData.coord.lon}, ${weatherData.coord.lat}</p>
-            
+            <p>Tuuli: ${windSpeed} ${windDirection}</p>            
         `;
+        map.setView([longitude, latitude], 13);
     } catch (error) {
         console.error('Error fetching weather data:', error);
         weatherDataContainer.innerHTML = `<h3>Error fetching weather data. Please try again later.</h3>`;
