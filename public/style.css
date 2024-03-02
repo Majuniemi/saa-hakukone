@@ -65,7 +65,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 1em auto;
     width: 80%;
     max-width: 80%;
 }
@@ -74,7 +74,7 @@ input[type="text"] {
     margin-top: 10px;
     padding: 10px;
     width: 100%;
-    border: 1px solid var(--weather-background-color);
+    border: 1px solid var(--header-footer-background-color);
     border-radius: 4px;
     margin-right: 10px;
     background-color: var(--weather-background-color);
@@ -96,6 +96,7 @@ button {
     padding: 1em;
     color: var(--header-footer-background-color);
     background-color: var(--weather-background-color);
+    border: solid 1px var(--header-footer-background-color);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -115,6 +116,31 @@ button {
 #map {
     width: 100%;
     height: 100%;
+}
+
+#teksti {
+    margin: 1em;
+}
+
+#load-more {
+    margin: 1em;
+}
+
+#buzzword-table {
+    margin: 1em;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+#buzzword-table th,
+#buzzword-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#buzzword-table th {
+    background-color: #f2f2f2;
 }
 
 footer {

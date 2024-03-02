@@ -1,9 +1,10 @@
 const button = document.getElementById('button');
 const input = document.getElementById('cityInput');
-let longitude = 65;
-let latitude = 27;
+let longitude = 65.0591;
+let latitude = 25.4604;
+let marker = null; // Lisää uusi muuttuja markerille
 
-var map = L.map('map').setView([longitude, latitude], 8)
+var map = L.map('map').setView([longitude, latitude], 13)
 
 L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=GdSPu31pwUy9cLlOnBAA', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
@@ -20,6 +21,13 @@ input.addEventListener('keypress', (event) => {
 function handleClick() {
     getWeather();
 }
+
+var greenIcon = L.icon({
+    iconUrl: 'https://cdn1.iconfinder.com/data/icons/science-metallic-vol-2/64/meteorological-station-512.png',
+    iconSize: [90, 90], // size of the icon
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
 async function getWeather() {
     const cityInput = document.getElementById('cityInput').value;
@@ -42,7 +50,15 @@ async function getWeather() {
             <p>Kosteus: ${weatherData.main.humidity}%</p>
             <p>Tuuli: ${windSpeed} ${windDirection}</p>            
         `;
-        map.setView([longitude, latitude], 13);
+        map.setView([longitude, latitude], 16);
+
+        // Poista vanha marker, jos sellainen on olemassa
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        marker = L.marker([longitude, latitude], { icon: greenIcon }).addTo(map);
+        L.marker
+        
     } catch (error) {
         console.error('Error fetching weather data:', error);
         weatherDataContainer.innerHTML = `<h3>Error fetching weather data. Please try again later.</h3>`;
@@ -52,11 +68,11 @@ async function getWeather() {
 
 function getWindSpeed(speed) {
     if (speed < 3) {
-        return "Vähäinen";
+        return "vähäinen";
     } else if (speed > 3 && speed < 8) {
-        return "Kohtalainen";
+        return "kohtalainen";
     } else {
-        return "Kova";
+        return "kova";
     }
 }
 

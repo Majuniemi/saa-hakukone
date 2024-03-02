@@ -4,13 +4,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 
+
 app.use(express.static('public'));
 
 app.get('/weather/:city', async (req, res) => {
     try {
         const city = req.params.city;
         const apiKey = process.env.API_KEY;
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fi`;
 
         const response = await axios.get(apiUrl);
         const data = response.data;
