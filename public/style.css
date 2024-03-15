@@ -76,7 +76,6 @@ body {
     justify-content: center;
     margin: 1em auto;
     width: 80%;
-    max-width: 80%;
 }
 
 .data>input[type="text"] {
@@ -114,6 +113,10 @@ button:hover {
     border-radius: 4px;
 }
 
+.weatherData p {
+    margin: 0.7em;
+}
+
 #cityHeaderDiv {
     display: flex;
     flex-direction: column;
@@ -128,13 +131,19 @@ button:hover {
 
 #weatherData1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 1em;
+    margin-top: 0px;
     padding: 0.5em;
     background-color: var(--site-background-color);
     border-radius: 4px;
+}
+
+#icon {
+    width: 100px;
+    height: auto;
 }
 
 #weatherData2 {
@@ -143,6 +152,7 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     margin: 1em;
+    margin-top: 0px;
     padding: 0.5em;
     background-color: var(--site-background-color);
     border-radius: 4px;
@@ -194,7 +204,6 @@ button:hover {
 
 footer {
     background-color: var(--header-footer-background-color);
-    color: var(--header-footer-color);
     text-align: center;
     padding: 1em 0;
     width: 100%;
@@ -214,4 +223,29 @@ footer a {
 footer a:hover {
     box-shadow: inset 100px 0 0 0 var(--header-footer-accent-color);
     color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+
+    .data {
+        width: 95%;
+    }
+
+    .weatherData {
+        width: 95%;
+    }
+
+    #weatherData1,
+    #weatherData2 {
+        width: 100%;
+    }
+
+    #map {
+        width: 95%;
+    }
+
+    #buzzword-table {
+        width: 90%;
+    }
+
 }
