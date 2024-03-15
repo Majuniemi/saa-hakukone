@@ -28,7 +28,6 @@ async function getWeather() {
             <p>Tuntuu kuin: ${weatherData.main.feels_like}°C</p>
             <p>Säätila: ${weatherData.weather[0].description}</p>
             <p>Kosteus: ${weatherData.main.humidity}%</p>
-            <p>Tuuli: ${windSpeed} ${windDirection}</p>            
         `;
     } catch (error) {
         console.error('Error fetching weather data:', error);
