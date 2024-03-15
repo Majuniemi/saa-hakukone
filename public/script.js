@@ -9,6 +9,9 @@ const feelsLikeSpan = document.querySelector('#feelsLike');
 const weatherDescriptionSpan = document.querySelector('#weatherDescription');
 const humiditySpan = document.querySelector('#humidity');
 const windSpan = document.querySelector('#wind');
+const cloudinessSpan = document.querySelector('#cloudiness');
+const pressureSpan = document.querySelector('#pressure');
+const visibilitySpan = document.querySelector('#visibility');
 const iconSpan = document.querySelector('img');
 
 function handleClick() {
@@ -38,6 +41,9 @@ async function getWeather() {
         weatherDescriptionSpan.innerHTML = weatherData.weather[0].description;
         humiditySpan.innerHTML = weatherData.main.humidity;
         windSpan.innerHTML = windSpeed + ' ' + windDirection;
+        cloudinessSpan.innerHTML = weatherData.clouds.all;
+        pressureSpan.innerHTML = weatherData.main.pressure;
+        visibilitySpan.innerHTML = weatherData.visibility;
         iconSpan.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`;
 
         map.setView([longitude, latitude], 15);

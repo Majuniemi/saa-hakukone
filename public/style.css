@@ -2,7 +2,7 @@
     --header-footer-background-color: #12163b;
     --header-footer-color: #ffae3c;
     --header-footer-accent-color: #50C4ED;
-    --weather-background-color: #ffe5ca;
+    --weather-background-color: #ffe8d0;
     --site-background-color: #f4fdff;
 }
 
@@ -141,6 +141,13 @@ button:hover {
     border-radius: 4px;
 }
 
+#weatherData1Right {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+
+
 #icon {
     width: 100px;
     height: auto;
@@ -148,9 +155,9 @@ button:hover {
 
 #weatherData2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 1em;
     margin-top: 0px;
     padding: 0.5em;
