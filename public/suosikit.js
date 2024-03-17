@@ -1,5 +1,11 @@
 const button = document.getElementById('button');
+const refresh = document.getElementById('refresh');
 const input = document.getElementById('cityInput');
+const remove = document.getElementById('remove');
+const citySpan = document.querySelector('#city');
+const temperatureSpan = document.querySelector('#temperature');
+const weatherDescriptionSpan = document.querySelector('#weatherDescription');
+const favorites = ['Oulu', 'Tampere', 'Helsinki', 'Rovaniemi'];
 
 
 button.addEventListener('click', handleClick);
@@ -11,27 +17,66 @@ input.addEventListener('keypress', (event) => {
 });
 
 function handleClick() {
-    getWeather();
-}
+    let cityToAdd = document.getElementById('cityInput').value;
+    if (cityToAdd !== '') {
+        cityToAdd = cityToAdd.charAt(0).toUpperCase() + cityToAdd.slice(1);
+        favorites.push(cityToAdd);
+    }
+    refreshFavorites();
+    input.value = '';
+};
 
-async function getWeather() {
-    const cityInput = document.getElementById('cityInput').value;
-    const weatherDataContainer = document.getElementById('weatherData');
+remove.addEventListener('click', () => {
+    let cityToRemove = document.getElementById('removeCity').value;
+    cityToRemove = cityToRemove.charAt(0).toUpperCase() + cityToRemove.slice(1);
+    if (favorites.includes(cityToRemove)) {
+        const index = favorites.indexOf(cityToRemove);
+        favorites.splice(index, 1);
+    }
+    refreshFavorites();
+    removeCity.value = '';
+});
 
+
+function refreshFavorites() {
+    weatherDataSpan.innerHTML = '';
+    for (let i = 0; i < favorites.length; i++) {
+        getWeather(favorites[i]);
+    }
+};
+
+refreshFavorites();
+
+async function getWeather(city) {
+    let cityInput = city;
     try {
         const response = await axios.get(`/weather/${cityInput}`);
         const weatherData = response.data;
+        const weatherDataSpan = document.querySelector('#weatherDataSpan');
 
-        weatherDataContainer.innerHTML = `
-            <h2>Säätila kaupungissa: ${cityInput}</h2>
-            <p>Lämpötila: ${weatherData.main.temp}°C</p>
-            <p>Tuntuu kuin: ${weatherData.main.feels_like}°C</p>
-            <p>Säätila: ${weatherData.weather[0].description}</p>
-            <p>Kosteus: ${weatherData.main.humidity}%</p>
+        const newWeatherDiv = document.createElement('div');
+        newWeatherDiv.setAttribute('class', 'weatherData');
+        newWeatherDiv.innerHTML = `
+            <div id="weatherData">    
+                <div id="weatherDataLeft">
+                    <div>
+                        <h2>${cityInput}</h2>
+                    </div>
+                </div>
+                <div id="weatherDataRight">
+                    <div id="temperatureDiv">
+                        <p>${weatherData.main.temp} C°</p>
+                    </div>
+                    <div id="weatherDescriptionDiv">
+                        <p>${weatherData.weather[0].description}</p>
+                    </div>
+                </div>
+            </div>
         `;
+
+        weatherDataSpan.appendChild(newWeatherDiv);
+
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        weatherDataContainer.innerHTML = `<h3>Error fetching weather data. Please try again later.</h3>`;
     }
-    input.value = '';
-}
+};

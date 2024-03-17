@@ -14,14 +14,22 @@ const pressureSpan = document.querySelector('#pressure');
 const visibilitySpan = document.querySelector('#visibility');
 const iconSpan = document.querySelector('img');
 
+button.addEventListener('click', handleClick);
+
+input.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        handleClick();
+    }
+});
+
 function handleClick() {
     getWeather();
 }
 
-getWeather();
-
 async function getWeather() {
     let cityInput = document.getElementById('cityInput').value;
+    cityInput = cityInput.charAt(0).toUpperCase() + cityInput.slice(1);
+
     if (cityInput === '') {
         cityInput = 'Oulu';
     }
@@ -61,6 +69,8 @@ async function getWeather() {
     input.value = '';
 }
 
+getWeather();
+
 function getWindSpeed(speed) {
     if (speed < 3) {
         return "vähäinen";
@@ -88,14 +98,6 @@ var map = L.map('map').setView([longitude, latitude], 13)
 L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=GdSPu31pwUy9cLlOnBAA', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 }).addTo(map);
-
-button.addEventListener('click', handleClick);
-
-input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        handleClick();
-    }
-});
 
 var stationIcon = L.icon({
     iconUrl: 'https://cdn1.iconfinder.com/data/icons/science-metallic-vol-2/64/meteorological-station-512.png',

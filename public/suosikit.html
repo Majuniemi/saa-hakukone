@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Sääsuosikit</title>
+    <link rel="stylesheet" href="suosikit.css">
+    <title>Päivän sää | Suosikit</title>
 </head>
 
 <body>
@@ -15,15 +15,27 @@
         <nav>
             <ul>
                 <li><a href="index.html">Etusivu</a></li>
-                <li><a href="suosikit.html">Suosikit</a></li>
+                <li><a href="suosikit.html" id="active">Suosikit</a></li>
                 <li><a href="tietoja.html">Tietoja</a></li>
             </ul>
         </nav>
     </header>
-    <div id="data">
-        <input type="text" id="cityInput" placeholder="Kaupunki">
-        <button id="button">Hae säätiedot</button>
-        <div id="weatherData"></div>
+    <div id="content">
+        <div class="data">
+            <input type="text" id="cityInput" placeholder="Lisää suosikki">
+            <button id="button">Lisää</button>
+        </div>
+        <div id="suosikit">
+            <h2>Suosikit:</h2>
+        </div>
+        <div class="weatherDataClass">
+            <span id="weatherDataSpan"></span>
+        </div>
+        <div class="data">
+            <input type="text" id="removeCity"
+                placeholder="Poista suosikki kirjoittamalla sen nimi ja painamalla Poista">
+            <button id="remove">Poista</button>
+        </div>
     </div>
     <footer>
         <a href="https://github.com/Majuniemi">Majuniemi</a>
