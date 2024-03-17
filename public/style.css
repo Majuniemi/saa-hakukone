@@ -3,7 +3,7 @@
     --header-footer-color: #ffae3c;
     --header-footer-accent-color: #50C4ED;
     --weather-background-color: #ffe8d0;
-    --site-background-color: #f4fdff;
+    --site-background-color: #f2fdff;
     --border-radius: 8px;
 }
 
@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    color: var(--header-footer-background-color);
 }
 
 .site-header {
@@ -104,7 +105,7 @@ button {
     border: none;
     border-radius: var(--border-radius);
     background-color: var(--header-footer-color);
-    color: var(--weather-background-color);
+    color: var(--header-footer-background-color);
     cursor: pointer;
 }
 
