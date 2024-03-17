@@ -36,6 +36,11 @@ body {
     font-size: 1.5em;
 }
 
+.site-header h1 a {
+    color: var(--header-footer-color);
+    text-decoration: none;
+}
+
 .site-header ul {
     list-style: none;
     padding: 0;
