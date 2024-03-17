@@ -147,12 +147,12 @@ button:hover {
     padding: 0.5em;
     background-color: var(--site-background-color);
     border-radius: 4px;
+    flex: 1;
 }
 
 #weatherDataSpan>div {
-    flex-grow: 1;
-    min-width: 0;
-    max-width: 100%;
+    flex: 1;
+
 }
 
 #weatherData {
@@ -175,7 +175,6 @@ button:hover {
 
 #weatherDataLeft,
 #weatherDataRight {
-    display: flex;
     flex: 1;
 }
 
