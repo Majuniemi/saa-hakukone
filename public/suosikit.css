@@ -4,6 +4,7 @@
     --header-footer-accent-color: #50C4ED;
     --weather-background-color: #fff0e0;
     --site-background-color: #f4fdff;
+    --border-radius: 8px;
 }
 
 * {
@@ -87,7 +88,7 @@ body {
     padding: 10px;
     width: 100%;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     margin-right: 10px;
     background-color: var(--weather-background-color);
 }
@@ -96,7 +97,7 @@ button {
     margin-top: 1em;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     background-color: var(--header-footer-color);
     color: var(--weather-background-color);
     cursor: pointer;
@@ -109,21 +110,12 @@ button:hover {
 .weatherDataClass {
     display: flex;
     flex-direction: row;
-    align-items: space-evenly;
+    align-items: stretch;
     justify-content: space-evenly;
     margin: 1em auto;
     width: 80%;
     background-color: var(--weather-background-color);
-    border-radius: 4px;
-}
-
-.weatherDataClass>div {
-    flex-grow: 1;
-    min-width: 0;
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    border-radius: var(--border-radius);
 }
 
 .weatherData p,
@@ -142,20 +134,19 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 1em;
     padding: 0.5em;
     background-color: var(--site-background-color);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     flex: 1;
 }
 
 #weatherDataSpan>div {
     flex: 1;
-
 }
 
-#weatherData {
+#weatherDataDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -163,11 +154,11 @@ button:hover {
     margin: 1em;
     padding: 0.5em;
     background-color: var(--weather-background-color);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 }
 
 
-#weatherData>div {
+#weatherDataDiv>div {
     flex-grow: 1;
     min-width: 0;
     max-width: 100%;
@@ -176,6 +167,18 @@ button:hover {
 #weatherDataLeft,
 #weatherDataRight {
     flex: 1;
+}
+
+#weatherDataRight {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+#weatherDataRight>div {
+    display: flex;
+    flex: 1;
+    text-align: center;
 }
 
 footer {
@@ -214,6 +217,11 @@ footer a:hover {
     #weatherDataSpan {
         flex-direction: column;
         width: 95%;
+    }
+
+    #weatherDataRight {
+        display: flex;
+        flex-direction: column;
     }
 
 }

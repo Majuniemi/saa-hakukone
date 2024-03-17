@@ -5,7 +5,7 @@ const remove = document.getElementById('remove');
 const citySpan = document.querySelector('#city');
 const temperatureSpan = document.querySelector('#temperature');
 const weatherDescriptionSpan = document.querySelector('#weatherDescription');
-const favorites = ['Oulu', 'Tampere', 'Helsinki', 'Rovaniemi'];
+let favorites = JSON.parse(localStorage.getItem('favorites'));
 
 
 button.addEventListener('click', handleClick);
@@ -21,6 +21,7 @@ function handleClick() {
     if (cityToAdd !== '') {
         cityToAdd = cityToAdd.charAt(0).toUpperCase() + cityToAdd.slice(1);
         favorites.push(cityToAdd);
+        saveFavorites();
     }
     refreshFavorites();
     input.value = '';
@@ -32,11 +33,15 @@ remove.addEventListener('click', () => {
     if (favorites.includes(cityToRemove)) {
         const index = favorites.indexOf(cityToRemove);
         favorites.splice(index, 1);
+        saveFavorites();
     }
     refreshFavorites();
     removeCity.value = '';
 });
 
+function saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+};
 
 function refreshFavorites() {
     weatherDataSpan.innerHTML = '';
@@ -57,7 +62,7 @@ async function getWeather(city) {
         const newWeatherDiv = document.createElement('div');
         newWeatherDiv.setAttribute('class', 'weatherData');
         newWeatherDiv.innerHTML = `
-            <div id="weatherData">    
+            <div id="weatherDataDiv">    
                 <div id="weatherDataLeft">
                     <div>
                         <h2>${cityInput}</h2>
