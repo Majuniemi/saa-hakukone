@@ -5,9 +5,7 @@ const remove = document.getElementById('remove');
 const citySpan = document.querySelector('#city');
 const temperatureSpan = document.querySelector('#temperature');
 const weatherDescriptionSpan = document.querySelector('#weatherDescription');
-let favorites = JSON.parse(localStorage.getItem('favorites'));
-
-
+let favorites = JSON.parse(localStorage.getItem('favorites')) || ['Helsinki', 'Tampere', 'Oulu'];
 button.addEventListener('click', handleClick);
 
 input.addEventListener('keypress', (event) => {

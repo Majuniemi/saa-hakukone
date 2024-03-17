@@ -266,3 +266,37 @@ footer a:hover {
     }
 
 }
+
+@media screen and (max-width: 600px) {
+
+    .site-header h1 {
+        font-size: 1.2em;
+    }
+
+    .site-header li {
+        margin-right: 10px;
+    }
+
+    .site-header li:last-child {
+        margin-right: 1em;
+    }
+
+    .data {
+        width: 95%;
+    }
+
+    .weatherDataClass {
+        width: 95%;
+    }
+
+    #weatherDataSpan {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    #weatherDataRight {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
