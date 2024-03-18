@@ -41,7 +41,7 @@ async function getWeather() {
         const windDirection = getWindDirection(weatherData.wind.deg);
         longitude = weatherData.coord.lat;
         latitude = weatherData.coord.lon;
-        console.log(longitude, latitude);
+        //console.log(longitude, latitude);
 
         citySpan.innerHTML = cityInput;
         temperatureSpan.innerHTML = weatherData.main.temp;
@@ -101,7 +101,7 @@ L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=GdSPu31p
 
 var stationIcon = L.icon({
     iconUrl: 'https://cdn1.iconfinder.com/data/icons/science-metallic-vol-2/64/meteorological-station-512.png',
-    iconSize: [90, 90], // size of the icon
-    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconSize: [90, 90],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76]
 });

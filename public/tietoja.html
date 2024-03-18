@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Tietoja</title>
+    <title>Päivän sää | Tietoja</title>
 </head>
 
 <body>
@@ -19,30 +19,76 @@
             </ul>
         </nav>
     </header>
-    <p>Tietoja tähän:</p>
-    <p>Bonuksena raflaavia puppulauseita!</p>
-    <div id="teksti">
-        <p>Tämä sivusto käyttää hyväkseen generaattoria, jota voit tarkastella <a
-                href="https://github.com/sameerkumar18/corporate-bs-generator-api">tästä</a>.</p>
+    <div id="content">
+        <div class="weatherData">
+            <div id="cityHeaderDiv">
+                <h2>Päivän sää</h2>
+            </div>
+            <div id="teksti">
+                <p>Tämä on sääsovellus, joka tarjoaa ajankohtaista säädataa annetulle sijainnille ja sisältää myös
+                    suosikkikaupunkien lisäämisen suosikkilistaan.
+                    <br>
+                    <br>
+                    Ominaisuudet
+                    <br>
+                    <br>
+                    - Hae ajankohtaista säädataa tietystä sijainnista<br>
+                    - Näytä lämpötila, kosteus, tuuli ja muut säätilatiedot<br>
+                    - Hae sääennusteita kaupungin nimen tai koordinaattien perusteella<br>
+                    - Responsiivinen suunnittelu mobiili- ja työpöytälaitteille<br>
+                    <br>
+                    <br>
+                    Asentaminen
+                    <br>
+                    <br>
+                    1. Kloonaa repository: `git clone https://github.com/your-username/weather-forecast-app.git`<br>
+                    2. Asenna riippuvuudet: `npm install`<br>
+                    3. Käynnistä sovellus: `npm start`<br>
+                    4. Ympäristömuuttujiin täytyy antaa OpenWeatherMapin API-avain kohtaan: API_KEY=''<br>
+                    <br>
+                    <br>
+                    Käyttäminen
+                    <br>
+                    <br>
+                    1. Avaa sovellus web-selaimessasi osoitteessa localhost:3000.<br>
+                    2. Syötä kaupungin nimi tai sen koordinaatit hakupalkkiin.<br>
+                    3. Klikkaa "Hae" -painiketta hakeaksesi sääennusteita.<br>
+                    4. Ajankohtaiset säätilatiedot näytetään ruudulla.<br>
+                    <br>
+                    <br>
+                    Suosikit
+                    <br>
+                    <br>
+                    1. Suosikkilista tallentuu evästeisiin.<br>
+                    2. Voit lisätä paikkakunnan listaan sivun yläosassa olevalla kentällä.<br>
+                    3. Suosikkilistassa olevat paikkakunnat näyttävät sivulla perustiedot useasta paikasta
+                    kerralla.<br>
+                    4. Voit poistaa suosikkilistan kohteita kirjoittamalla paikan nimen alempaan tekstikenttään ja
+                    painamalla Poista.<br>
+                    5. Voit myös tyhjentää koko suosikkilistan poistamalla sivun evästeet.<br>
+                    <br>
+                    <br>
+                    Käytetyt teknologiat
+                    <br>
+                    <br>
+                    - HTML<br>
+                    - CSS<br>
+                    - JavaScript<br>
+                    - Node<br>
+                    <br>
+                    <br>
+                    ## Esittelyvideo
+                    <br>
+                    <br>
+                    <a href="//youtu.be/AO7QjGrqh3s">Linkki esittelyvideoon</a>
+                </p>
+            </div>
+        </div>
     </div>
-    <div>
-        <button id="load-more">Luo uusi</button>
-    </div>
-
-    <table id="buzzword-table">
-        <thead>
-            <tr>
-                <th>Työelämässä tavattavia puppulauseita</th>
-            </tr>
-        </thead>
-        <tbody id="buzzword-body">
-        </tbody>
-    </table>
     <footer>
         <a href="https://github.com/Majuniemi/saa-hakukone">Majuniemi</a>
-        </div>
     </footer>
-    <script type="module" src="tietoja.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>

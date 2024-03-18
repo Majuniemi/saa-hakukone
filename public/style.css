@@ -57,7 +57,7 @@ body {
     margin-right: 2em;
 }
 
-.site-header nav ul li a {
+a {
     box-shadow: inset 0 0 0 0 var(--header-footer-color);
     color: var(--header-footer-color);
     margin: 0 -.25rem;
@@ -66,8 +66,8 @@ body {
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
-.site-header nav ul li a:hover {
-    box-shadow: inset 100px 0 0 0 var(--header-footer-accent-color);
+a:hover {
+    box-shadow: inset 200px 0 0 0 var(--header-footer-accent-color);
     color: #fff;
 }
 
@@ -157,8 +157,6 @@ button:hover {
     font-weight: bold;
 }
 
-
-
 #icon {
     width: 100px;
     height: auto;
@@ -196,28 +194,10 @@ button:hover {
 }
 
 #teksti {
+    background-color: var(--site-background-color);
     margin: 1em;
-}
-
-#load-more {
-    margin: 1em;
-}
-
-#buzzword-table {
-    margin: 1em;
-    width: 50%;
-    border-collapse: collapse;
-}
-
-#buzzword-table th,
-#buzzword-table td {
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: left;
-}
-
-#buzzword-table th {
-    background-color: #f2f2f2;
+    padding: 0.5em;
+    border-radius: var(--border-radius);
 }
 
 footer {
@@ -227,20 +207,6 @@ footer {
     width: 100%;
     height: 20px;
     flex-shrink: 0;
-}
-
-footer a {
-    box-shadow: inset 0 0 0 0 var(--header-footer-color);
-    color: var(--header-footer-color);
-    margin: 0 -.25rem;
-    padding: 0 .25rem;
-    text-decoration: none;
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-}
-
-footer a:hover {
-    box-shadow: inset 100px 0 0 0 var(--header-footer-accent-color);
-    color: #fff;
 }
 
 @media screen and (max-width: 800px) {
